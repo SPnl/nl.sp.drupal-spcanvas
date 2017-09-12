@@ -1,0 +1,127 @@
+@import url("//hello.myfonts.net/count/32f3e5");
+
+@font-face {font-family: 'HelveticaInseratLTPro';src: url('webfonts/32F3E5_0_0.eot');src: url('webfonts/32F3E5_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/32F3E5_0_0.woff2') format('woff2'),url('webfonts/32F3E5_0_0.woff') format('woff'),url('webfonts/32F3E5_0_0.ttf') format('truetype');}
+
+h2 {
+  font-family: 'HelveticaInseratLTPro', 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+  color: #ff4fa5;
+}
+
+body {
+  margin: 0px;
+  font-family: 'HelveticaInseratLTPro', 'Source Sans Pro', sans-serif;
+  color: #00e000;
+  font-size:18px;
+}
+
+form {
+  float: left;
+  width: 90%;
+  height: 100%;
+  padding: 30px;
+}
+
+#container_left,
+#container_right {
+  width: 48%;
+  height: 100%;
+  float: left;
+  padding: 1%;
+}
+
+#canvaswrap {
+  width:100%;
+  position: relative;
+  display: block;
+}
+#canvaswrap:before {
+  content: "";
+  display: block;
+  padding-top: 141.42857143%;
+}
+
+#canvaswrap-inner {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+#memecanvas {
+  width: auto;
+  height: 100%;
+  max-height: 90vh;
+  top:0;
+}
+
+#custom-text {
+  width: 100%;
+  height: 120px;
+  float: left;
+  margin-bottom: 15px;
+}
+
+.thumb {
+  width: 75px;
+  height: 75px;
+  float: left;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+#thumb_container {
+  width: 100%;
+  float: left;
+}
+
+#download_container {
+  width: 100%;
+  display:none;
+  float: none; 
+  clear: both;
+}
+
+#download_container.true {
+  display:block;
+}
+
+#download_container {
+  margin-top: 2em;
+}
+
+.download-button {
+  font-family: 'HelveticaInseratLTPro', 'Source Sans Pro', sans-serif;
+  text-transform: uppercase;
+  color: #ff4fa5;
+  text-decoration: none;
+  font-size: 20px;
+  background-color: #ffe000;
+  padding: .71em 1.4em;
+}
+
+a:hover {
+  color: #ea0000;
+  background-color: #00e000;
+}
+
+#logout {
+  position: absolute;
+  right:10px;
+  top:5px;
+}
+
+#thumb_container {
+  margin-bottom: 20px;
+}
+
+textarea {
+  font-size: 18px;
+}
+
+.preload {
+  display: none;
+}

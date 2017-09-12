@@ -1,0 +1,79 @@
+<?php
+
+function spcanvas_menu() {
+  $items = array();
+  $items['plakdemacht'] = array(
+    'title' => 'SP Canvas',
+    'type' => MENU_NORMAL_ITEM,
+    'access callback' => 'user_is_logged_in',
+  );
+  return $items;
+}
+
+function spcanvas_page_delivery_callback_alter(&$delivery_callback){
+  $router_item = menu_get_item();
+  if ($router_item['path'] === 'plakdemacht') {
+    if (user_is_logged_in()) {
+      $delivery_callback = 'spcanvas_content';
+    }
+  }
+}
+
+function spcanvas_content () {
+  $base_path = drupal_get_path('module', 'spcanvas');
+
+  $content = <<<END
+<html>
+<head>
+<title>SP Plak de Macht - Postermaker</title>
+<script type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="{$base_path}/reimg/reimg.js"></script>
+<link rel="stylesheet" type="text/css" href="{$base_path}/spcanvas.css">
+</head>
+<body>
+  <div id="container_left">
+    <div id="canvaswrap">
+      <div id="canvaswrap-inner">
+        <canvas id="memecanvas" style="border:0px;">Sorry, canvas not supported</canvas>
+      </div>
+    </div>
+    <div class="preload">
+      <img src="{$base_path}/images/roze-geel.jpg"  id="bg1" />
+      <img src="{$base_path}/images/geel-rood.jpg"  id="bg2" />
+      <img src="{$base_path}/images/groen-roze.jpg" id="bg3" />
+      <img src="{$base_path}/images/geel-roze.jpg"  id="bg4" />
+      <img src="{$base_path}/images/rood-geel.jpg"  id="bg5" />
+      <img src="{$base_path}/images/roze-groen.jpg" id="bg6" />
+    </div>
+  </div>
+
+  <div id="container_right">
+    <form>
+      <div id="introduction">
+        <h2>Jouw slogan:</h2>
+        <textarea type='text' id="custom-text" onblur="onBlur(this)" onfocus="onFocus(this)" onkeyup="doTransform()" oninput="doTransform()" onpaste="doTransform()" />Type het hier ...</textarea>
+        <p>(nog <span id="charsLeft"></span> tekens)</p>
+      </div>
+
+      <div id="thumb_container">
+        <h2>Kies je kleurencombi</h2>
+        <div class="thumb" data-bg="bg1" data-textcolor="#ffe000"><img src="{$base_path}/images/roze-geel-thumb.jpg" alt="1"></div>
+        <div class="thumb" data-bg="bg2" data-textcolor="#ea0000"><img src="{$base_path}/images/geel-rood-thumb.jpg" alt="2"></div>
+        <div class="thumb" data-bg="bg3" data-textcolor="#ff4fa5"><img src="{$base_path}/images/groen-roze-thumb.jpg" alt="3"></div>
+        <div class="thumb" data-bg="bg4" data-textcolor="#ff4fa5"><img src="{$base_path}/images/geel-roze-thumb.jpg" alt="4"></div>
+        <div class="thumb" data-bg="bg5" data-textcolor="#ffe000"><img src="{$base_path}/images/rood-geel-thumb.jpg" alt="5"></div>
+        <div class="thumb" data-bg="bg6" data-textcolor="#00e000"><img src="{$base_path}/images/roze-groen-thumb.jpg" alt="6"></div>
+      </div>
+
+      <input type="checkbox" id="checkboxAgreed" />
+      <label for="checkboxAgreed">De SP mag de door mij gemaakte poster ook gebruiken.</label>
+      <div id="download_container" class="false">
+        <a id="download_button" class="download-button" href="#" onclick="downloadCanvasAsPng()">Download je poster</a>
+      </div>
+    </form>
+    </div>
+  <script src="{$base_path}/spcanvas.js"></script>
+</body>
+END;
+  print $content;
+}
