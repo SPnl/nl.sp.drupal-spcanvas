@@ -1,7 +1,6 @@
 {
   "name": "SPnl/nl.sp.drupal-spcanvas",
   "description": "Online poster generator.",
-  "version": "1.0.0",
   "type": "drupal-module",
   "authors": [
     {
