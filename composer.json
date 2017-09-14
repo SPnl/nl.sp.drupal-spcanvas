@@ -1,7 +1,7 @@
 {
-  "name": "SPnl/nl.sp.drupal-spcanvas",
+  "name": "spnl/nl.sp.drupal-spcanvas",
   "description": "Online poster generator.",
-  "type": "drupal-module",
+  "type": "drupal-custom-module",
   "authors": [
     {
       "name": "Thomas de Graaff",
